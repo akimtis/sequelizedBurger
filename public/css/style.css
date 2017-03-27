@@ -1,0 +1,96 @@
+
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+}
+
+.page-wrap nav {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+/*working to get the image to merge with navbar on home.html*/
+.homenav{
+  margin-bottom : 0;
+}
+
+.apptitle{
+  color: black;
+  font-size: 6em;
+  text-orientation: center;
+}
+
+.functionrow{
+  height: 100%;
+  padding-bottom: 20px
+}
+
+.input{
+  margin-top: 50px
+}
+
+.btn{
+  text-align: right;
+}
+
+/*.burgerbackground {
+  background: url('/images/burgerheader.jpg') no-repeat center center scroll; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  padding-top: 0px;
+}*/
+
+.burgerbuntop {
+  background: url('/images/burgerbuntop.png') no-repeat center center scroll; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+ /* background-size: cover;*/
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+.homebackground h1{
+  margin-top: 0px;
+}
+
+
+
+/*to make the footer sticky*/
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -50px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+#quesiton_button{
+  float: right;
+}
+
+.site-footer, .page-wrap:after {
+  height: 50px; 
+}
+
+footer {
+  background: #2C3E50;
+  clear: both;
+  color: white;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  }

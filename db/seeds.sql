@@ -1,0 +1,3 @@
+INSERT INTO burgers (id, burger_name, devoured,created_at, updated_at) VALUES (1,'Verde', true, '2017-03-15 12:01:00', '2017-03-15 12:00:10');
+INSERT INTO burgers (id, burger_name, devoured,created_at, updated_at) VALUES (2,'Enough Said', false, '2017-03-11 12:01:00', '2017-03-16 12:00:10');
+INSERT INTO burgers (id, burger_name, devoured,created_at, updated_at) VALUES (3,'The Kevin Bacon', false, '2017-03-11 12:01:00', '2017-03-16 12:00:10');
