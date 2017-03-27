@@ -19,9 +19,26 @@ app.set("view engine", "handlebars");
 
 app.use(methodOverride("_method"));
 
+// *** Dependencies
+// =============================================================
+var express = require("express");
+var db = require("./models")
+
+// Sets up the Express App
+// =============================================================
+var app = express();
+var PORT = process.env.PORT || 8080;
+
+
+
 // routes
 app.use("/", routes);
 
-app.listen(PORT, function(){
-  console.log("listening on port" + PORT);
-})
+
+
+db.sequelize.sync().then(function() {
+  validate: { force: true },
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+});
