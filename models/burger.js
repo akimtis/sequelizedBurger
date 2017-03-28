@@ -1,12 +1,23 @@
+var Sequelize = require("sequelize");
+// sequelize (lowercase) references our connection to the DB.
+var sequelize = require("../config/connection.js");
 
-module.exports = function(sequelize, DataTypes) {
-  var Burger = sequelize.define("Burger", {
-    burger_name: DataTypes.STRING,
-    devoured: DataTypes.BOOLEAN
-  });
-  return Burger;
-};
 
+
+var Burger = sequelize.define("Burger", {
+  burger_name: DataTypes.STRING,
+  devoured: DataTypes.BOOLEAN
+}, {
+  timestamps: false,
+  freezeTableName: true // Model tableName will be the same as the model name instead of being pluralized
+});
+  
+
+// Syncs with DB
+Burger.sync();
+
+// Makes the Band Model available for other files (will also create a table)
+module.exports = Burger;
 
 // var orm = require("../config/orm.js");
 
