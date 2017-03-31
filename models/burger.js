@@ -3,7 +3,11 @@ var db = require("../config/config.js");
 
 
 var Burger = db.define("Burger", {
-
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
   burger_name: {
     type: Sequelize.STRING
   },

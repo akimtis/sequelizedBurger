@@ -4,9 +4,10 @@ var bodyParser = require("body-parser");
 var methodOverride = require('method-override');
 var routes = require("./controllers/burgers_controller.js");
 var exphbs = require("express-handlebars");
-var PORT = process.env.PORT || 3000;
+
 
 var app = express();
+var PORT = process.env.PORT || 3000;
 
 app.use(express.static(process.cwd() + "/public"));
 
@@ -26,8 +27,8 @@ var database = require("./config/config.js")
 
 // Sets up the Express App
 // =============================================================
-var app = express();
-var PORT = process.env.PORT || 8080;
+// var app = express();
+// var PORT = process.env.PORT || 8080;
 
 
 
@@ -36,9 +37,9 @@ app.use("/", routes);
 
 
 
-database.sync().then(function() {
-  validate: { force: true }
+// database.sync().then(function() {
+//   validate: { force: true }
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
-});
+// });
