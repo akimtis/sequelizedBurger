@@ -1,23 +1,37 @@
-var Sequelize = require("sequelize");
-// sequelize (lowercase) references our connection to the DB.
-var sequelize = require("../config/connection.js");
+var Sequelize = require('sequelize');
+var db = require("../config/config.js");
 
 
+var Burger = db.define("Burger", {
 
-var Burger = sequelize.define("Burger", {
-  burger_name: DataTypes.STRING,
-  devoured: DataTypes.BOOLEAN
+  burger_name: {
+    type: Sequelize.STRING
+  },
+  devoured: {
+    type: Sequelize.BOOLEAN
+  }
+
 }, {
   timestamps: false,
   freezeTableName: true // Model tableName will be the same as the model name instead of being pluralized
 });
-  
 
 // Syncs with DB
-Burger.sync();
+
+// Burger.sync({force: true}).then(function () {
+//   // Table created
+//   return Burger.create({
+//     burger_name: 'The Western',
+//     devoured: false
+//   }).then(function(){
+//   console.log("added first burger");
+//   });
+// });
+
+
 
 // Makes the Band Model available for other files (will also create a table)
-module.exports = Burger;
+
 
 // var orm = require("../config/orm.js");
 
@@ -33,6 +47,16 @@ module.exports = Burger;
 //       cb(res);
 //     });
 //   },
+
+
+// db.Burger.create ({
+//   burger_name: "The Western",
+//   devoured: true
+// }).then(function(){
+//   console.log()
+// });
+
+
 //   update: function(objColVals, condition, cb) {
 //     orm.update("burgers", objColVals, condition, function(res) {
 //       cb(res);
@@ -45,5 +69,6 @@ module.exports = Burger;
 //   }
 // };
 
-// // Export the database functions for the controller (catsController.js).
-// module.exports = burger;
+
+
+module.exports = Burger;

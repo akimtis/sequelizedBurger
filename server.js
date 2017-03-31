@@ -22,7 +22,7 @@ app.use(methodOverride("_method"));
 // *** Dependencies
 // =============================================================
 var express = require("express");
-var db = require("./models")
+var database = require("./config/config.js")
 
 // Sets up the Express App
 // =============================================================
@@ -36,8 +36,8 @@ app.use("/", routes);
 
 
 
-db.sequelize.sync().then(function() {
-  validate: { force: true },
+database.sync().then(function() {
+  validate: { force: true }
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
