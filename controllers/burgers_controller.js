@@ -17,47 +17,39 @@ router.get("/", function(req, res) {
     console.log("burgers data:", hbsObject);
     res.render("index", hbsObject);
   });
-  // burger.findAll({}, function(data) {
-  //   var hbsObject = {
-  //     burgers: data
-  //   };
-  //   console.log("burgers data:", hbsObject);
-  //   res.render("index", hbsObject);
-  // });
 });
 
 
 
 router.post("/", function(req, res) {
-  burger.create([
-    "burger_name", "devoured"
-  ], [
-    req.body.burger_name, req.body.devoured
-  ], function() {
-    res.redirect("/");
-  });
+  if (request.body.burger_name) {
+    model.create({ burger_name: request.body.burger_name })
+    .then(function() {
+    response.redirect('/');
+    });
+  }
 });
 
-router.put("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
 
+router.put("/devoured/:id", function(req, res) {
+  // var condition = "id = " + req.params.id;
   console.log("condition", condition);
   console.log("req.body.devoured", req.body.devoured);
-  burger.update({
-    devoured: req.body.devoured
-  }, condition, function() {
+  model.update(
+      {
+        devoured: request.body.devoured
+      },
+      {
+        where: {
+          id: request.params.id
+        }
+      })
+   .then(function() {
     res.redirect("/");
   });
 });
 
-router.delete("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
 
-  console.log("deleting burger")
-  burger.delete(condition, function() {
-    res.redirect("/");
-  });
-});
 
 
 

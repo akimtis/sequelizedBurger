@@ -7,26 +7,21 @@
           <div class="col-md-4">
             <img src="/images/burgerbuntop.png" alt="burger bun" width=100%>
             <h3>Burgers to Devour</h3>
-       
-            <table class="table table-striped table-hover ">
-              <tbody>
-              {{#each burgers}}
-                {{#unless this.devoured}}
-                  <tr class="active">
-                    <td>
-                      {{this.burger_name}}
-
-                      <form action="/{{this.id}}?_method=PUT" method="POST">
-                        <input type="hidden" name="devoured" value="true">
-                        <button class="btn btn-success" type="submit">Devour</button>
-                        <!-- <button class="btn btn-success" type="submit">Devour</button> -->
+             <ul>
+                  {{#each burgers}} 
+                      {{#unless this.devoured}}
+                  <li>    
+                      {{this.burger_name}}  
+                      <form method="POST" action="/devoured/{{this.id}}?_method=PUT">
+                          <input type="hidden" name="devoured" value="true">
+                          <button type="submit" name="burgerId" class="btn btn-danger center-block off-set-70">Devour it!</button>
                       </form>
-                    </td>
-                  </tr>
-                {{/unless}}
-              {{/each}}
-              </tbody>
-            </table> 
+                      <hr>
+                  </li>
+                    {{/unless}} 
+                  {{/each}}
+              </ul>
+            
             <img src="/images/burgerbunbottom.png" alt="burger bun" width=100%>
           </div>
        
