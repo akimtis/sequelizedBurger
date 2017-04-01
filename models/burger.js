@@ -12,13 +12,18 @@ var Burger = db.define("Burger", {
     type: Sequelize.STRING
   },
   devoured: {
-    type: Sequelize.BOOLEAN
+    type: Sequelize.BOOLEAN,
+    defaultValue: 0
   }
 
 }, {
   timestamps: false,
   freezeTableName: true // Model tableName will be the same as the model name instead of being pluralized
 });
+
+Burger.sync();
+
+module.exports = Burger;
 
 // Syncs with DB
 
@@ -75,4 +80,3 @@ var Burger = db.define("Burger", {
 
 
 
-module.exports = Burger;
